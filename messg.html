@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>April Fool!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;  
+            color: #f5f5f5;
+            text-align: center;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container {
+            max-width: 750px;
+            padding: 40px;
+            background: #252525;  
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);  
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);  
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #ff4444;   
+            margin: 0;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #ccc;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        strong {
+            display: block;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #ffa500;  
+        }
+
+        .subtle-link {
+            color: #007BFF;          
+            text-decoration: none;     
+            font-style: italic;        
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .subtle-link:hover {
+            color: #ff4444;           
+            text-decoration: underline; 
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            strong {
+                font-size: 16px;
+            }
+        }
+
+        .glitch {
+            font-size: 18px;
+            color: #f5f5f5;
+            animation: glitch 1.2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(3px, -3px); }
+            60% { transform: translate(-3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>😈 April Fool! 😈</h1>
+    <h2>There was no other question! You’ve been searching for a button that <strong>never existed</strong>. <br>  
+    Don't trust strangers and <a href="https://github.com/I-am-Sakthivel" target="_blank" class="subtle-link">weirdos</a> on the internet! 😉</h2>
+    
+    <strong>And yeah, they were all AI-generated (in case you were still searching for that).</strong>
+    
+    <h2 id="ipadd" class="glitch"></h2>
+</div>
+
+<script>
+    fetch('http://ip-api.com/json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ipadd').textContent = `Found you at: ${data.city} 👀`;
+        })
+        .catch(err => console.error(err));
+</script>
+
+</body>
+</html>

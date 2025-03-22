@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE AWARE! BE AWAKE!</title>
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container {
+            max-width: 1000px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            color: #ff6347; 
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin: 20px 0;
+            color: #ccc;
+        }
+
+        strong {
+            color: #ffd700; 
+        }
+
+        button {
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        button:hover {
+            background: #0275d8;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        button:disabled {
+            background: #555;
+        }
+
+        
+        body {
+            cursor: none;
+        }
+
+        #cursor {
+            width: 50px;
+            height: 50px;
+            background: url('lightsaber.png') no-repeat center/contain;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            animation: saberGlow 1.5s infinite alternate;
+        }
+
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff6347; }
+            100% { text-shadow: 0 0 20px #ffd700, 0 0 30px #ff6347; }
+        }
+
+        @keyframes saberGlow {
+            0% { filter: drop-shadow(0 0 5px #00ffcc); }
+            100% { filter: drop-shadow(0 0 15px #00ffcc); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 1.2rem;
+            }
+
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="cursor"></div>
+
+<div class="container">
+    <h1>BE AWARE! BE AWAKE!</h1>
+    <p>Welcome!</p>
+    <p>I'm <strong>Sakthivel S</strong>, the designer of this website.</p>
+    <p>I've designed this website to make people aware of all the scams happening around us.</p>
+    <p>You'll find some tips to avoid scams along the way.</p>
+    <p>Are you ready to challenge yourself with these three questions? 🧠</p>
+    <p>Lost your cursor, huh?</p>
+
+    <button id="start-btn">Start</button>
+</div>
+
+<script>
+    
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+    });
+
+    
+    const button = document.getElementById('start-btn');
+    let isReady = false;
+
+    button.addEventListener('click', () => {
+        if (isReady) {
+            window.location.href = 'err.html';
+        } else {
+            alert(`How are you this fast? Seems suspicious! Are you a Jedi? 🌌`);
+        }
+    });
+
+    setTimeout(() => {
+        isReady = true;
+        button.classList.add('enabled');
+    }, 2000);
+</script>
+
+</body>
+
+</html>
