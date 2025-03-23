@@ -154,6 +154,8 @@
     <h1>Welcome to the quiz!</h1>
     <h2>Qn1: Spot the human-generated image. If you fail, you’ll be sent to a learning page.</h2>
 
+    <p id="par">There is a <strong>Next</strong> button on this page to move to the next question... 🤫</p>
+
     <div class="btn-container">
         <div class="btn" onclick="selectOption(1)">
             <img src="stuff/img_1.avif" alt="Option 1">
@@ -184,6 +186,12 @@
         window.open('https://www.getcybersafe.gc.ca/en/resources/recognize-artificial-intelligence-ai-9-ways-spot-ai-content-online');
         window.location.href = 'err2.html';
     }
+    setTimeout(()=>{
+        document.getElementById('par').style.display = 'block';
+        document.getElementById('inv-but').style.opacity = 1;
+        document.getElementById('inv-but').classList.add('visible');
+    },10000)
+   
 </script>
 
 </body>

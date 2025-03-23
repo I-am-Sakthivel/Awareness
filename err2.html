@@ -78,6 +78,29 @@
                 font-size: 16px;
             }
         }
+
+        .btn {
+            display: inline-block;
+            width: 160px;
+            height: 50px;
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+            background: #4c0000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+            animation: fadeIn 1.5s;
+        }
+
+        .btn:hover {
+            background: #ff0000;
+            color: #000;
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.7);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -87,14 +110,8 @@
     <p>It seems you're a bit too eager for this quiz. You've been redirected here for clicking too fast. 🫣</p>
     <p class="hint">Uhm!! There was another button on that page... maybe you should search for it. 🕵️‍♀️</p>
     <p>Redirecting you back to the quiz in a moment...</p>
-    <div class="loader"></div>
+    <button onclick="window.location.href = 'quiz2.html';" class="btn">Move back to the quiz</button>
 </div>
-
-<script>
-    setTimeout(() => {
-        window.location.href = 'quiz.html';
-    }, 12000);
-</script>
 
 </body>
 </html>
